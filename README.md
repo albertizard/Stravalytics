@@ -5,11 +5,11 @@
 
 ## Features 
 
-    - ⬇️ Download your Strava activities
-    - ☀️ Add weather information to your feed
-    - 📊 Interactive plots of distance, time, elevaton...
-    - 📅 Visualize multiple years at once
-    - 📈 Display trends month-over-month, year-over-year...
+- ⬇️ Download your Strava activities
+- ☀️ Add weather information to your feed
+- 📊 Interactive plots of distance, time, elevaton...
+- 📅 Visualize multiple years at once
+- 📈 Display trends month-over-month, year-over-year...
     
 ### Weather
 
@@ -29,11 +29,11 @@ Create interactive plots, with a slider in the bottom to zoom-in in the x-axis
 
 <img src=images/totals_interactive.png  alt="Strava activity with weather information" width="600"/>
 
-# Stay tunned
+# Stay tuned
 
 This project is work in progress (May 2025). Expect soon:
 
-    - More and better documentation, including how to setup the Strava API and the weatherAPI.
-    - New feature! Add month-over-month metrics to your feed, stay motivated!
-    - New feature! Performance metric that captures your overall fitness level
-    - New feature! Automatic deployment of the code online and detection of new activity uploads.
+- More and better documentation, including how to setup the Strava API and the weatherAPI.
+- New feature! Add month-over-month metrics to your feed, stay motivated!
+- New feature! Performance metric that captures your overall fitness level
+- New feature! Automatic deployment of the code online and detection of new activity uploads.
