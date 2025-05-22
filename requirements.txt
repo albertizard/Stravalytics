@@ -1,0 +1,6 @@
+load_dotenv
+requests
+pandas
+numpy
+plotly
+matplotlib
