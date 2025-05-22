@@ -15,19 +15,19 @@
 
 The weather conditions can be added to your activities on Strava:
 
-<img src=../images/feed_weather.png  alt="Strava activity with weather information" width="600"/>
+<img src=images/feed_weather.png  alt="Strava activity with weather information" width="600"/>
 
 
 ### Analytics
 
 Display the total of various metrics (distance, time, elevation, elevation gain...) over many years:
 
-<img src=../images/mileage.png  alt="Strava activity with weather information" width="600"/>
+<img src=images/mileage.png  alt="Strava activity with weather information" width="600"/>
 
 
 Create interactive plots, with a slider in the bottom to zoom-in in the x-axis
 
-<img src=../images/totals_interactive.png  alt="Strava activity with weather information" width="600"/>
+<img src=images/totals_interactive.png  alt="Strava activity with weather information" width="600"/>
 
 # Stay tunned
 
