@@ -159,18 +159,19 @@ class StravaApiClient(ApiUtils):
         Change the description of an activity with a new description.
         Replace or append the new description to the current one. 
         """
-
-    
-        if append_new_description:
-            old_description = self.get_activity(activity_id).get('description')
-            if old_description is not None:
+        
+        # old_description = None
+        old_description = self.get_activity(activity_id).get('description')
+        
+        if append_new_description and old_description is not None:
                 new_description = old_description + "\n\n" + new_description
-
+        
         print("updating activity description. \n>>> From: \n",
-              old_description,
-              "\n>>> to: \n",
+              old_description if old_description is not None else '',
+              "\n>>> To: \n",
               new_description
              )
+        
         url = self.activity_url + '/' + str(activity_id)
         status = self.api_call('PUT', url, headers=self.header, params={'description': new_description})
     
@@ -190,7 +191,7 @@ class StravaApiClient(ApiUtils):
     
         print("updating activity name. \n>>> From: \n",
               old_name,
-              "\n>>> to: \n",
+              "\n>>> To: \n",
               new_name
              )
         url = self.activity_url + '/' + str(activity_id)
@@ -216,8 +217,8 @@ class StravaApiClient(ApiUtils):
         for _id in activity_ids:
 
             # Check if the activity already has weather information
-            old_description = self.get_activity(_id).get('description')
-            if 'albertizard' in old_description:
+            old_description = self.get_activity(_id).get('description') or ''
+            if old_description is not None and 'Stravalytics' in old_description:
                 print(f"Activity id={_id} already had weather information. Skipping it.")
                 count_activities_had_weather += 1
                 continue
@@ -241,11 +242,10 @@ class StravaApiClient(ApiUtils):
             if weather.weather_data is None:
                 count_activities_weather_error += 1
                 continue
+
+            new_description = weather.weather_summary \
+                                + ' - by albertizard dot com / Stravalytics \nalbertizard.com/Stravalytics'
             
-            new_description = old_description \
-                            + "\n\n" \
-                            + weather.weather_summary \
-                            + ' - by albertizard dot com'
             new_name = weather.weather_emoji
     
             if dry_run == True:
@@ -255,8 +255,8 @@ class StravaApiClient(ApiUtils):
                       weather.weather_emoji)
             else:
                 print(f"Adding weather information to activity id={_id}")
-                status = update_activity_description(_id, new_description, append_new_description=False)
-                status = update_activity_name(_id, new_name=new_name, prepend_new_name=True)
+                status = self.update_activity_description(_id, new_description, append_new_description=False)
+                status = self.update_activity_name(_id, new_name, prepend_new_name=True)
 
             count_activities_updated += 1
 
