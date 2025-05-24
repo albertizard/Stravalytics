@@ -218,7 +218,7 @@ class StravaApiClient(ApiUtils):
 
             # Check if the activity already has weather information
             old_description = self.get_activity(_id).get('description') or ''
-            if old_description is not None and 'Stravalytics' in old_description:
+            if old_description is not None and 'stravalytics' in old_description:
                 print(f"Activity id={_id} already had weather information. Skipping it.")
                 count_activities_had_weather += 1
                 continue
@@ -244,7 +244,7 @@ class StravaApiClient(ApiUtils):
                 continue
 
             new_description = weather.weather_summary \
-                                + ' - by albertizard dot com / Stravalytics \nalbertizard.com/Stravalytics'
+                                + ' - by albertizard.com/stravalytics \n(albertizard dot com / stravalytics) \n'
             
             new_name = weather.weather_emoji
     
