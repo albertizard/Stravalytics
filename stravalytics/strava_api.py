@@ -244,7 +244,7 @@ class StravaApiClient(ApiUtils):
                 continue
 
             new_description = weather.weather_summary \
-                                + ' - by albertizard.com/stravalytics \n(albertizard dot com / stravalytics) \n'
+                                + ' - by albertizard.com/stravalytics\n'
             
             new_name = weather.weather_emoji
     

@@ -126,7 +126,7 @@ class WeatherEmojis():
             "Clear": {
                 "night": {"emoji": "🌙", "emoji_unicode": "\U0001F319"},
             },
-            "Partly Cloudy": {
+            "Partly cloudy": {
                 "day": {"emoji": "🌤️", "emoji_unicode": "\U0001F324"},
                 "night": {"emoji": "🌙☁️", "emoji_unicode": "\U0001F319\u2601"}
             },
