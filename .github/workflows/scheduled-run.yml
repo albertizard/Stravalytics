@@ -18,4 +18,9 @@ jobs:
           python-version: '3.11'
 
       - name: Run script
+        env:
+          WEATHERAPI_KEY: ${{secrets.WEATHERAPI_KEY}}
+          STRAVA_REFRESH_TOKEN: ${{secrets.STRAVA_REFRESH_TOKEN}}
+          STRAVA_CLIENT_SECRET: ${{secrets.STRAVA_CLIENT_SECRET}}
+          STRAVA_CLIENT_ID: ${{secrets.STRAVA_CLIENT_ID}}
         run: python main.py
