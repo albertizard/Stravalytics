@@ -105,8 +105,9 @@ class StravaApiClient(ApiUtils):
         """
     
         df_activities = pd.json_normalize(self.activities_data)
-    
-        df_activities = df_activities[df_activities['type']==activity_type_filter]
+
+        if activity_type_filter:
+            df_activities = df_activities[df_activities['type']==activity_type_filter]
 
         # End coordinates may be more reliable that start coordinates
         df_activities[['end_lat', 'end_lon']] = df_activities['end_latlng'].apply(pd.Series)

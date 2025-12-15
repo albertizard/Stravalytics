@@ -19,7 +19,7 @@ def main():
     strava_client.get_activities(max_pages=1)
 
     # Transform to a clean DataFrame. Select running activities
-    strava_client.create_df_activities(activity_type_filter="Run")
+    strava_client.create_df_activities(activity_type_filter=[])
 
     print(f"Fetched {len(strava_client.df_activities)} activities")
     print(strava_client.df_activities.head())
