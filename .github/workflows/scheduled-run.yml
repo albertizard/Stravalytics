@@ -1,0 +1,29 @@
+name: Run main on schedule
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # every hour, on the hour (UTC)
+  workflow_dispatch:  # Adds manual run button
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          WEATHERAPI_KEY: ${{secrets.WEATHERAPI_KEY}}
+          STRAVA_REFRESH_TOKEN: ${{secrets.STRAVA_REFRESH_TOKEN}}
+          STRAVA_CLIENT_SECRET: ${{secrets.STRAVA_CLIENT_SECRET}}
+          STRAVA_CLIENT_ID: ${{secrets.STRAVA_CLIENT_ID}}
+        run: python main.py
